@@ -1,136 +1,219 @@
+import 'package:capstoneApp/SSarms.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+//pages import
+import './Chevella.dart';
+import './Kandi.dart';
+import './SSarms.dart';
+import './aaraku.dart';
+import './shadnagar.dart';
 
 class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 1024,
-      child: Container(
-          child: Column(
+    return Scaffold(
+      body: ListView(
         children: <Widget>[
-          Card(
-            elevation: 10,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+          Container(
+            height: 1650,
+            padding: EdgeInsets.all(13),
+            child: Container(
+                child: Column(
               children: <Widget>[
-                Container(
-                  height: 172,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/chevellaresort/1.jpeg',
+                Card(
+                  //padding: EdgeInsets.all(5),
+                  elevation: 10,
+                  child: Column(
+                    // height: 100,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Container(
+                        height: 172,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/chevellaresort/1.jpeg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      fit: BoxFit.cover,
-                    ),
+                      const ListTile(
+                        title: Text("Chevella"),
+                        subtitle: Text("Price:Rs.8000 per sqyard"),
+                      ),
+                      ButtonBar(
+                        children: <Widget>[
+                          RaisedButton(
+                            child: Text('View More'),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Chevella(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                const ListTile(
-                  title: Text("Chevella"),
-                ),
-                ButtonBar(
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text('View More'),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Card(
-            elevation: 10,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  height: 172,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/chevellaresort/1.jpeg',
+                Card(
+                  elevation: 10,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Container(
+                        height: 172,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0004.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      fit: BoxFit.cover,
-                    ),
+                      const ListTile(
+                        title: Text("SS Farms"),
+                        subtitle: Text(
+                            "Rs.1,50,000/- for 121sqyards (i.e One Gunta)"),
+                      ),
+                      ButtonBar(
+                        children: <Widget>[
+                          RaisedButton(
+                            child: Text('View More'),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => SSFarms(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                const ListTile(
-                  title: Text("Chevella"),
-                ),
-                ButtonBar(
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text('View More'),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Card(
-            elevation: 10,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  height: 172,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/chevellaresort/1.jpeg',
+                Card(
+                  elevation: 10,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Container(
+                        height: 172,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/shaadnagarbheemaram/13.jfif',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      fit: BoxFit.cover,
-                    ),
+                      const ListTile(
+                        title: Text("Shad Nagar"),
+                        subtitle: Text("Price : Rs.4500 only per sqyard"),
+                      ),
+                      ButtonBar(
+                        children: <Widget>[
+                          RaisedButton(
+                            child: Text('View More'),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => ShadNagar(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                const ListTile(
-                  title: Text("Chevella"),
-                ),
-                ButtonBar(
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text('View More'),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Card(
-            elevation: 10,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  height: 172,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/chevellaresort/1.jpeg',
+                Card(
+                  elevation: 10,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Container(
+                        height: 172,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0007.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      fit: BoxFit.cover,
-                    ),
+                      const ListTile(
+                        title: Text("Kandi"),
+                        subtitle: Text("Price : Rs.8500 only per sqyard"),
+                      ),
+                      ButtonBar(
+                        children: <Widget>[
+                          RaisedButton(
+                            child: Text('View More'),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Kandi(),
+                                ),
+                              );
+                            },
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                const ListTile(
-                  title: Text("Chevella"),
-                ),
-                ButtonBar(
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text('View More'),
-                      onPressed: () {},
-                    ),
-                  ],
+                Card(
+                  elevation: 10,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Container(
+                        height: 172,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/10.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const ListTile(
+                        title: Text("Aaraku"),
+                        subtitle: Text("Price : Rs.5000 only per sqyard"),
+                      ),
+                      ButtonBar(
+                        children: <Widget>[
+                          RaisedButton(
+                            child: Text('View More'),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Aaraku(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
-            ),
-          ),
+            )),
+          )
         ],
-      )),
+      ),
     );
   }
 }

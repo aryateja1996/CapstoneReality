@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 // Custom Classes Import
 import './body.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,7 +11,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          elevation: 15,
           title: Text("Capstone Reality"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.call,
+                color: Colors.white,
+              ),
+              onPressed: null,
+            ),
+          ],
         ),
         body: Main(),
       ),
