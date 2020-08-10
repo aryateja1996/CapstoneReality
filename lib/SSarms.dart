@@ -8,6 +8,7 @@ class SSFarms extends StatefulWidget {
 }
 
 class _SSFarmsState extends State<SSFarms> {
+  // ignore: unused_field
   int _current = 0;
   CarouselSlider carouselSlider;
   List imglist = [

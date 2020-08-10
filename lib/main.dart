@@ -1,4 +1,7 @@
+//pakages import
 import 'package:flutter/material.dart';
+//import 'package:get_it/get_it.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // Custom Classes Import
 import './body.dart';
@@ -19,12 +22,22 @@ class MyApp extends StatelessWidget {
                 Icons.call,
                 color: Colors.white,
               ),
-              onPressed: null,
+              onPressed: () {
+                customLauncher('tel:+91 7661904609');
+              },
             ),
           ],
         ),
         body: Main(),
       ),
     );
+  }
+
+  void customLauncher(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print("Can't launch");
+    }
   }
 }
