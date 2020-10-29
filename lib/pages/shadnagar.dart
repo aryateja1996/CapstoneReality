@@ -2,6 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ShadNagar extends StatefulWidget {
+  final bool active;
+
+  ShadNagar({Key key, this.active});
   @override
   _ShadNagarState createState() => _ShadNagarState();
 }
@@ -54,19 +57,27 @@ class _ShadNagarState extends State<ShadNagar> {
     'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/shaadnagarbheemaram/41.jpeg',
     'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/shaadnagarbheemaram/42.jpeg',
   ];
+  ShadNagar ch = new ShadNagar();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shad Nagar"),
+        title:
+            ch.active == true ? Text("ShadNagar") : Text("ShadNagar Completed"),
       ),
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              ch.active == true
+                  ? null
+                  : Text(
+                      "Completed",
+                      style: TextStyle(fontSize: 35, color: Colors.black45),
+                    ),
               carouselSlider = CarouselSlider(
-                height: 400,
+                height: ch.active == true ? 400 : 200,
                 enlargeCenterPage: true,
                 autoPlay: false,
                 autoPlayInterval: Duration(

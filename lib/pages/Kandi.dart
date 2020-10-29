@@ -1,48 +1,53 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+//carousel import
+import 'package:carousel_slider/carousel_slider.dart';
 
-class Aaraku extends StatefulWidget {
+class Kandi extends StatefulWidget {
+  final bool active;
+
+  Kandi({Key key, this.active});
   @override
-  _AarakuState createState() => _AarakuState();
+  _KandiState createState() => _KandiState();
 }
 
-class _AarakuState extends State<Aaraku> {
+class _KandiState extends State<Kandi> {
   // ignore: unused_field
   int _current = 0;
+  Kandi ch = new Kandi();
   CarouselSlider carouselSlider;
   List imglist = [
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/1.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/2.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/3.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/4.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/5.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/6.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/7.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/8.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/9.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/10.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/11.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/12.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/13.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/14.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/15.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/16.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/17.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/18.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0002.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0003.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0004.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0005.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0006.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0007.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0008.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0009.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0010.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0010.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0012.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0013.jpg',
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AAraku"),
+        title: ch.active == true ? Text("Kandi") : Text("Kandi Completed"),
       ),
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              ch.active == true
+                  ? null
+                  : Text(
+                      "Completed",
+                      style: TextStyle(fontSize: 35, color: Colors.black45),
+                    ),
               carouselSlider = CarouselSlider(
-                height: 400,
+                height: ch.active == true ? 400 : 200,
                 enlargeCenterPage: true,
                 autoPlay: false,
                 autoPlayInterval: Duration(

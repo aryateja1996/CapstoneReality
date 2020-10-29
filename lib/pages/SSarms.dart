@@ -2,42 +2,52 @@ import 'package:flutter/material.dart';
 //carousel import
 import 'package:carousel_slider/carousel_slider.dart';
 
-class Kandi extends StatefulWidget {
+class SSFarms extends StatefulWidget {
+  final bool active;
+
+  SSFarms({Key key, this.active});
   @override
-  _KandiState createState() => _KandiState();
+  _SSFarmsState createState() => _SSFarmsState();
 }
 
-class _KandiState extends State<Kandi> {
+class _SSFarmsState extends State<SSFarms> {
   // ignore: unused_field
   int _current = 0;
   CarouselSlider carouselSlider;
   List imglist = [
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0002.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0003.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0004.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0005.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0006.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0007.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0008.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0009.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0010.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0010.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0012.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/kandi/IMG-20200605-WA0013.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0002.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0003.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0004.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0005.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0006.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0007.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0008.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0009.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0010.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0011.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0012.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0013.jpg',
   ];
+  SSFarms ch = new SSFarms();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Kandi"),
+        title: ch.active == true ? Text("SSFarms") : Text("SSFarms Completed"),
       ),
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              ch.active == true
+                  ? null
+                  : Text(
+                      "Completed",
+                      style: TextStyle(fontSize: 35, color: Colors.black45),
+                    ),
               carouselSlider = CarouselSlider(
-                height: 400,
+                height: ch.active == true ? 400 : 200,
                 enlargeCenterPage: true,
                 autoPlay: false,
                 autoPlayInterval: Duration(

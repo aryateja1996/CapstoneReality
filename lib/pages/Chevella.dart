@@ -1,9 +1,13 @@
+
 import 'package:flutter/material.dart';
 
 //carousel import
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Chevella extends StatefulWidget {
+  final bool active;
+
+  Chevella({Key key, this.active});
   @override
   _ChevellaState createState() => _ChevellaState();
 }
@@ -11,6 +15,7 @@ class Chevella extends StatefulWidget {
 class _ChevellaState extends State<Chevella> {
   // ignore: unused_field
   int _current = 0;
+  Chevella ch = new Chevella();
   CarouselSlider carouselSlider;
 // Images Url
   List imgList = [
@@ -69,15 +74,19 @@ class _ChevellaState extends State<Chevella> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chevella"),
+        title:
+            ch.active == true ? Text("Chevella") : Text("Chevella Completed"),
       ),
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+
+                ch.active == true ? null : Text("Completed",style: TextStyle(fontSize: 35,color:Colors.black45 ),),
+
               carouselSlider = CarouselSlider(
-                height: 400,
+                height: ch.active == true ? 400 : 200,
                 enlargeCenterPage: true,
                 autoPlay: false,
                 autoPlayInterval: Duration(
@@ -97,17 +106,19 @@ class _ChevellaState extends State<Chevella> {
                     _current = index;
                   });
                 },
-                items: imgList.map((imgUrl) {
-                  return Builder(builder: (BuildContext context) {
-                    return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                        ),
-                        child: Image.network(imgUrl, fit: BoxFit.fill));
-                  });
-                }).toList(),
+                items: imgList.map(
+                  (imgUrl) {
+                    return Builder(builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                          ),
+                          child: Image.network(imgUrl, fit: BoxFit.fill));
+                    });
+                  },
+                ).toList(),
               ),
               SizedBox(
                 height: 20,

@@ -1,43 +1,56 @@
-import 'package:flutter/material.dart';
-//carousel import
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 
-class SSFarms extends StatefulWidget {
+class Aaraku extends StatefulWidget {
+  final bool active;
+
+ Aaraku({Key key, this.active});
   @override
-  _SSFarmsState createState() => _SSFarmsState();
+  _AarakuState createState() => _AarakuState();
 }
 
-class _SSFarmsState extends State<SSFarms> {
+class _AarakuState extends State<Aaraku> {
   // ignore: unused_field
   int _current = 0;
+  Aaraku ch = new Aaraku();
   CarouselSlider carouselSlider;
   List imglist = [
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0002.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0003.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0004.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0005.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0006.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0007.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0008.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0009.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0010.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0011.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0012.jpg',
-    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/ssfarms/IMG-20200701-WA0013.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/1.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/2.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/3.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/4.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/5.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/6.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/7.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/8.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/9.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/10.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/11.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/12.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/13.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/14.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/15.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/16.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/17.jpg',
+    'https://s3.ap-south-1.amazonaws.com/capstonereality.com/assets/db_images/araku/18.jpg',
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SS Farms"),
+        title: ch.active == true ? Text("Aaraku") : Text("Aaraku Completed"),
       ),
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+
+              ch.active == true ? null : Text("Completed",style: TextStyle(fontSize: 35,color:Colors.black45 ),),
+
+
               carouselSlider = CarouselSlider(
-                height: 400,
+                height: ch.active == true ? 400 : 200,
                 enlargeCenterPage: true,
                 autoPlay: false,
                 autoPlayInterval: Duration(
