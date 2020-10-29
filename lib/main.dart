@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -13,6 +12,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        drawer: Drawer(
+          child: Scaffold(
+            body: ListView(
+              children: [
+                DrawerHeader(
+                  child: Image(
+                    image: AssetImage('assets/icon/icon.png'),
+                  ),
+                ),
+                ListTile(
+                  title: Text('Privacy Policy'),
+                  onTap: () {
+                    launchUrl(
+                      'https://firebasestorage.googleapis.com/v0/b/capstone-reality-website.appspot.com/o/Privacy%20Policy.docx?alt=media&token=eb560e1a-6cbe-4c26-b3e4-234b06383547',
+                    );
+                  },
+                )
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           elevation: 15,
           title: Text("Capstone Reality"),
@@ -39,5 +59,13 @@ class MyApp extends StatelessWidget {
     } else {
       print("Can't launch");
     }
+  }
+}
+
+Future<void> launchUrl(url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
